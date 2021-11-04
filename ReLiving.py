@@ -1633,7 +1633,8 @@ def get_number_of_elements(list):
     for element in list:
         count += 1
     return count
-
+if os.path.isfile("knowledge.txt"):
+    os.rename('knowledge.txt', 'knowledge.png')
 if os.path.isfile("DLC.activ"):
     dlcActivation = True
 else:
@@ -1698,6 +1699,7 @@ while playLoop == True:
         optionsString = fileOptions.read().split(';')
         options = [int(optionsString[0]), int(optionsString[1]), float(optionsString[2]), int(optionsString[3]), int(optionsString[4]), float(optionsString[5])]
         textspeed = options[2]
+        fileOptions.close
     except:
         options = [0, 0, 1.4, 1, 0, 0.1]
         textspeed = options[2]
@@ -1716,7 +1718,7 @@ while playLoop == True:
             e = 0
         
 
-    fileOptions.close
+    
     know = open("knowledge.png", "r+")
     check = know.read().split(";")
     if check[23] == "True" and check[21] == "True" and check[16] == "True" and check[17] == "True" and check[18] == "True" and check[19] == "True":
