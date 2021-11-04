@@ -5,10 +5,6 @@ import os
 from datetime import date
 import time
 import getpass
-import os
-import os.path
-import datetime
-from datetime import date
 import webbrowser
 import random
 import sys
@@ -235,57 +231,57 @@ def pizza2():
     #do remove if not in part 2
 
 
-    #check if version file sxists and if it is the same
-    if os.path.isfile("data.png"):
-        data = open("data.png","r")
-        dataa = data.read().split(";")
-        data.close()
-        if dataa[0] == current:
-            e = 4
+        #check if version file sxists and if it is the same
+        if os.path.isfile("data.png"):
+            data = open("data.png","r")
+            dataa = data.read().split(";")
+            data.close()
+            if dataa[0] == current:
+                e = 4
+            else:
+                error = "0006"
+                crashReport(recover,error,script)
+                input("there is an error code 0006")
+                exit()
         else:
-            error = "0006"
+            error = "0007"
             crashReport(recover,error,script)
-            input("there is an error code 0006")
-            exit()
-    else:
-        error = "0007"
-        crashReport(recover,error,script)
-        input("there is an error code 0007")
-        exit()       
+            input("there is an error code 0007")
+            exit()       
 
-    #check if the main program sent you to this script, or if someone just opened this one
-    if os.path.isfile("check.png"):
-        checker = open("check.png","r+")
-        checkCheck = checker.read()
-        if checkCheck == "AA"+str(today.strftime("%d/%m/%Y"))+"AB":
-            checker.close()
-        
+        #check if the main program sent you to this script, or if someone just opened this one
+        if os.path.isfile("check.png"):
+            checker = open("check.png","r+")
+            checkCheck = checker.read()
+            if checkCheck == "AA"+str(today.strftime("%d/%m/%Y"))+"AB":
+                checker.close()
             
-        else:        
-            error = "0004"
+                
+            else:        
+                error = "0004"
+                crashReport(recover,error,script)
+                input("there is an error code 0004")
+                exit()
+        else:
+            error = "0001"
             crashReport(recover,error,script)
-            input("there is an error code 0004")
+            input("there is an error code 0001")
             exit()
-    else:
-        error = "0001"
-        crashReport(recover,error,script)
-        input("there is an error code 0001")
-        exit()
-    #try to remove the redirect to this script, so no one can open it multiple times or change it
-    checker.close()
-    try:
-        os.remove("check.png")
-    except:
-        error = "0002"
-        crashReport(recover,error,script)
-        input("there is an error code 0002\nTo protect against threats, the program has to be shutdown")
-        exit()
+        #try to remove the redirect to this script, so no one can open it multiple times or change it
+        checker.close()
+        try:
+            os.remove("check.png")
+        except:
+            error = "0002"
+            crashReport(recover,error,script)
+            input("there is an error code 0002\nTo protect against threats, the program has to be shutdown")
+            exit()
 
-    if os.path.isfile("achievements.txt"):
-        achievement = open("achievements.txt", "a")
-    else:
-        achievement = open("achievements.txt", "x")
-    achievement.close
+        if os.path.isfile("achievements.txt"):
+            achievement = open("achievements.txt", "a")
+        else:
+            achievement = open("achievements.txt", "x")
+        achievement.close
 
     #dit berekent de prijs per pizza
     def calculateCosts(dough, pepperoni, cheese, pineapple, ham, tomatosauce, tuna):
@@ -637,7 +633,7 @@ def pizza2():
                     print("(there is an achievement added to achievement.txt)")
                     time.sleep(3)
                     achievement=open("achievements.txt", "a+")
-                    achievement.write("\n |True Ending !2!| " +str(datetime.datetime.now()))
+                    achievement.write("\n |True Ending !2! (original game)| " +str(datetime.datetime.now()))
                     achievement.close
                     know.truncate(0)
                     know.seek(0)
@@ -645,7 +641,7 @@ def pizza2():
                     for line in check:
                         know.write(str(line) + ";")
                     know.close()
-                print("congrats, this was the true ending!")
+                print("congrats, this was the true ending! (of the original game)")
                 try:
                     os.remove("pizcalc1.png")
                     os.remove("pizcalc2.png")
@@ -705,57 +701,57 @@ def pizza1():
         crash.close()
     #check if version file sxists and if it is the same
 
-    if os.path.isfile("data.png"):
-        data = open("data.png","r")
-        dataa = data.read().split(";")
-        data.close()
-        if dataa[0] == current:
-            e = 4
+        if os.path.isfile("data.png"):
+            data = open("data.png","r")
+            dataa = data.read().split(";")
+            data.close()
+            if dataa[0] == current:
+                e = 4
+            else:
+                error = "0006"
+                crashReport(recover,error,script)
+                input("there is an error code 0006")
+                exit()
         else:
-            error = "0006"
+            error = "0007"
             crashReport(recover,error,script)
-            input("there is an error code 0006")
+            input("there is an error code 0007")
             exit()
-    else:
-        error = "0007"
-        crashReport(recover,error,script)
-        input("there is an error code 0007")
-        exit()
-            
-    #check if the main program sent you to this script, or if someone just opened this one
+                
+        #check if the main program sent you to this script, or if someone just opened this one
 
-    if os.path.isfile("check.png"):
-        checker = open("check.png","r+")
-        checkCheck = checker.read()
-        if checkCheck == "AA"+str(today.strftime("%d/%m/%Y"))+"AD":
-            checker.close()
-        
+        if os.path.isfile("check.png"):
+            checker = open("check.png","r+")
+            checkCheck = checker.read()
+            if checkCheck == "AA"+str(today.strftime("%d/%m/%Y"))+"AD":
+                checker.close()
             
-        else:        
-            error = "0004"
+                
+            else:        
+                error = "0004"
+                crashReport(recover,error,script)
+                input("there is an error code 0004")
+                exit()
+        else:
+            error = "0001"
             crashReport(recover,error,script)
-            input("there is an error code 0004")
+            input("there is an error code 0001")
             exit()
-    else:
-        error = "0001"
-        crashReport(recover,error,script)
-        input("there is an error code 0001")
-        exit()
-    #try to remove the redirect to this script, so no one can open it multiple times or change it
-    checker.close()
-    try:
-        os.remove("check.png")
-    except:
-        error = "0002"
-        crashReport(recover,error,script)
-        input("there is an error code 0002\nTo protect against threats, the program has to be shutdown")
-        exit()
+        #try to remove the redirect to this script, so no one can open it multiple times or change it
+        checker.close()
+        try:
+            os.remove("check.png")
+        except:
+            error = "0002"
+            crashReport(recover,error,script)
+            input("there is an error code 0002\nTo protect against threats, the program has to be shutdown")
+            exit()
 
-    if os.path.isfile("achievements.txt"):
-        achievement = open("achievements.txt", "a")
-    else:
-        achievement = open("achievements.txt", "x")
-    achievement.close
+        if os.path.isfile("achievements.txt"):
+            achievement = open("achievements.txt", "a")
+        else:
+            achievement = open("achievements.txt", "x")
+        achievement.close
 
     #dit berekent de prijs per pizza
     def calculateCosts(dough, pepperoni, cheese, pineapple, ham, tomatosauce, tuna):
@@ -1094,7 +1090,7 @@ def pizza1():
                     print("(there is an achievement added to achievement.txt)")
                     time.sleep(3)
                     achievement=open("achievements.txt", "a+")
-                    achievement.write("\n |True Ending !1!| " +str(datetime.datetime.now()))
+                    achievement.write("\n |True Ending !1! (original game)| " +str(datetime.datetime.now()))
                     achievement.close
                     know.truncate(0)
                     know.seek(0)

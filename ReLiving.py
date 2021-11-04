@@ -9,6 +9,9 @@ import random
 import sys
 import pyttsx3
 from dlc1 import *
+
+#mede mogelijk gemaakt door mert
+
 engine = pyttsx3.init()
 voices = engine.getProperty('voices') 
 engine.setProperty('voice', voices[1].id)
@@ -640,6 +643,7 @@ def dlc2(irritation, textspeed, cringe, options):
     if exxit == 1:
         return
 def path1(irritation, textspeed, cringe, options):
+    exxit = 0
     printing("the sun is shining, the warmth feels great on ur skin", options, 2, textspeed)
     loop = True
     while loop == True:
@@ -752,7 +756,7 @@ def path1(irritation, textspeed, cringe, options):
             options, textspeed = optionsEdit(options)
         elif "left" in input1[0]:
             printing("okay, lets take the turn left", options, 3, textspeed)
-            if os.path.isfile("DLC.activ") and dlcActivation == True and True == False:
+            if os.path.isfile("DLC.activ") and dlcActivation == True:
                 dlc(irritation, textspeed, cringe, options)
                 exxit = 1
                 if exxit == 1:
@@ -1242,6 +1246,7 @@ def path1(irritation, textspeed, cringe, options):
         else:
             printing("that's not a valid answer, what about a command like 'yes' or 'no,' that should work", options, 0, textspeed)
 def path2(irritation, textspeed, cringe, options):
+    exxit = 0
     loop = True
     while loop == True:
         printing("\nyou stay inside, so what are you gonna do inside?", options, 0, textspeed)
@@ -1360,7 +1365,7 @@ def path2(irritation, textspeed, cringe, options):
     printing("let's see if this works", options, 3, textspeed)
     loop = True
     while loop == True:
-        printing("\ndo you want to go inside or outside?")
+        printing("\ndo you want to go inside or outside?", options, 3, textspeed)
         input1 = input(">>>").split('.',1)
         if input1[0] == "options":
             options, textspeed = optionsEdit(options)
