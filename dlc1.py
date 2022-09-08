@@ -8,7 +8,7 @@ import getpass
 import webbrowser
 import random
 import sys
-import pyttsx3
+
 def smallScript():
     today = date.today()
     script = "small.py"
@@ -1111,9 +1111,6 @@ def pizza1():
 def menu():
     
 
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices') 
-    engine.setProperty('voice', voices[1].id)
     def printing(text, options, waitingSeconds, textspeed):  
         if options[0] == 1:
             for letter in text:

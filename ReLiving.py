@@ -7,14 +7,11 @@ from datetime import date
 import webbrowser
 import random
 import sys
-import pyttsx3
 from dlc1 import *
 
 #mede mogelijk gemaakt door mert
 
-engine = pyttsx3.init()
-voices = engine.getProperty('voices') 
-engine.setProperty('voice', voices[1].id)
+#
 if os.path.isfile("DLC.activ"):
     achievements = 38
 else:
@@ -69,8 +66,7 @@ def printing(text, options, waitingSeconds, textspeed):
         print(text)
         
     if options[1] == 1:
-        engine.say(text)
-        engine.runAndWait()
+        e = 0
     else:
         if waitingSeconds != 0:
             time.sleep(waitingSeconds / textspeed)
